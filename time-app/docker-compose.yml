@@ -24,9 +24,14 @@ services:
       retries: 10
     ports:
       - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
 
   dbeaver:
     image: dbeaver/cloudbeaver:latest
     restart: always
     ports:
       - "8888:8080"
+
+volumes:
+  mysql_data:
